@@ -1,31 +1,29 @@
 // Complete this js code
-function Person(name, age) {
-  this.name = name;
-  this.age = age;
+function Car(make, model) {
+  this.make = make;
+  this.model = model;
 }
 
-Person.prototype.greet = function() {
-  // Adjusted to match the expected output format
-  console.log(`Hello, my name is ${this.name} and I am ${this.age} years old`);
+Car.prototype.getMakeModel = function() {
+  return `${this.make} ${this.model}`;
 };
 
-function Employee(name, age, jobTitle) {
-  // Call the Person constructor to initialize name and age
-  Person.call(this, name, age);
-  this.jobTitle = jobTitle;
+function SportsCar(make, model, topSpeed) {
+  // Call the Car constructor to initialize make and model
+  Car.call(this, make, model);
+  this.topSpeed = topSpeed;
 }
 
-// Inherit the Person prototype for Employee
-Employee.prototype = Object.create(Person.prototype);
+// Inherit the Car prototype for SportsCar
+SportsCar.prototype = Object.create(Car.prototype);
 
-// Correct the constructor reference for Employee
-Employee.prototype.constructor = Employee;
+// Correct the constructor reference for SportsCar
+SportsCar.prototype.constructor = SportsCar;
 
-Employee.prototype.jobGreet = function() {
-  // Adjusted to match the expected output format
-  console.log(`Hello, my name is ${this.name}, I am ${this.age} years old, and my job title is ${this.jobTitle}`);
+SportsCar.prototype.getTopSpeed = function() {
+  return this.topSpeed;
 };
 
 // Do not change code below this line
-window.Person = Person;
-window.Employee = Employee;
+window.Car = Car;
+window.SportsCar = SportsCar;
